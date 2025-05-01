@@ -17,7 +17,7 @@
    <children>
       <AnchorPane fx:id="mainForm" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <AnchorPane fx:id="loginForm" layoutX="60.0" layoutY="107.0" prefHeight="550.0" prefWidth="320.0" styleClass="white-bg" stylesheets="@../design/PageDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="loginForm" layoutX="60.0" layoutY="107.0" prefHeight="550.0" prefWidth="350.0" styleClass="white-bg" stylesheets="@../design/PageDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="98.0" layoutY="144.0" text="Login Account" textFill="#306090">
                      <font>
@@ -53,7 +53,7 @@
                   <Hyperlink fx:id="loginCreateAccount" layoutX="203.0" layoutY="510.0" onAction="#switchForm" text="Create Account" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="registerForm" layoutX="10.0" layoutY="10.0" prefHeight="550.0" prefWidth="320.0" styleClass="white-bg" stylesheets="@../design/PageDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="registerForm" layoutX="10.0" layoutY="10.0" prefHeight="550.0" prefWidth="350.0" styleClass="white-bg" stylesheets="@../design/PageDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="98.0" layoutY="144.0" text="Create Account" textFill="#306090">
                      <font>

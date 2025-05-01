@@ -18,11 +18,12 @@ public class HospitalManagementSystem extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        System.out.println("-------------------------------------------- TESTE AQUI EMBAIXO ----------------------------------------------");
-        System.out.println(getClass().getName());
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
+        
+        stage.setMinWidth(337);
+        stage.setMinHeight(550);
         
         stage.setScene(scene);
         stage.show();
