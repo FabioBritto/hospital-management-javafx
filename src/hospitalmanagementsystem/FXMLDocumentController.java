@@ -5,6 +5,10 @@
 package hospitalmanagementsystem;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -74,9 +78,49 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField registerUsername;
     
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
+    private Connection connect;
+    private PreparedStatement prepare;
+    private ResultSet result;
+    
+    public void registerAcoount(){
         
+        if(registerEmail.getText().isEmpty() || registerUsername.getText().isEmpty() || registerPassword.getText().isEmpty()){
+            AlertMessage.errorMessage("Please fill all the fields");
+        }
+        else{
+            String checkUsername = "SELECT * FROM admin WHERE username = '" + registerUsername.getText() + "'";
+            
+            connect = Database.connectDB();
+            
+            try{
+                prepare = connect.prepareStatement(checkUsername);
+                result = prepare.executeQuery();
+                
+                if(result.next()){
+                    AlertMessage.errorMessage(registerUsername.getText() + " is already exist!");
+                }
+                else{
+                    
+                    String insertSQL = "INSERT INTO admin (email, username, password, date) VALUES (?,?,?,?)";
+                    
+                    Date date = new Date();
+                    java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+                    
+                    prepare = connect.prepareStatement(insertSQL);
+                    prepare.setString(1, registerEmail.getText());
+                    prepare.setString(2, registerUsername.getText());
+                    prepare.setString(3, registerPassword.getText());
+                    prepare.setString(4, String.valueOf(sqlDate));
+                    
+                    prepare.executeUpdate();
+                    
+                    AlertMessage.sucessMessage("Registered Successfully!");
+                }
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        }
     }
     
     public void switchForm(ActionEvent event){
